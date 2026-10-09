@@ -13,6 +13,6 @@ public class SimpleMathTest {
         Double actual = math.sum(6.2D, 2D);
         double expected = 8.2D;
 
-        assertEquals(8.2D, actual);
+        assertEquals(8.2D, actual, "6.2+2 did not produce expected result!");
     }
 }
