@@ -1,14 +1,17 @@
 package math;
 
 import br.com.yago.math.SimpleMath;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayName("Test Math operations in SimpleMath Class")
 public class SimpleMathTest {
 
     @Test
-    void testSum() {
+    @DisplayName("Test 6.2 + 2 = 8.2")
+    void testSum_When_SixDotTwoIsAddedByTwo_ShouldReturnEightDotTwo() {
         SimpleMath math = new SimpleMath();
         double firstNumber = 6.2D;
         double secondNumber = 2D;
@@ -22,7 +25,8 @@ public class SimpleMathTest {
     }
 
     @Test
-    void subTest(){
+    @DisplayName("Test 6.2 - 2 = 4.2")
+    void testSubtraction() {
         SimpleMath math = new SimpleMath();
         double firstNumber = 6.2D;
         double secondNumber = 2D;
@@ -36,20 +40,22 @@ public class SimpleMathTest {
     }
 
     @Test
-    void squareTest() {
+    @DisplayName("Test SquareRoot of 6.2 = 2.48")
+    void testSquareRoot() {
         SimpleMath math = new SimpleMath();
         double firstNumber = 6.2D;
 
         Double actual = math.squareRoot(firstNumber);
         double expected = 2.48D;
 
-        assertEquals(expected, actual, 0.01D, () -> "SquareRoot of "+ firstNumber + " did not produce " + expected);
+        assertEquals(expected, actual, 0.01D, () -> "SquareRoot of " + firstNumber + " did not produce " + expected);
         assertNotEquals(9.2, actual);
         assertNotNull(actual);
     }
 
     @Test
-    void multTest(){
+    @DisplayName("Test 6.2 * 2 = 12.4")
+    void testMultiplication() {
         SimpleMath math = new SimpleMath();
         double firstNumber = 6.2D;
         double secondNumber = 2D;
@@ -63,7 +69,8 @@ public class SimpleMathTest {
     }
 
     @Test
-    void medTest() {
+    @DisplayName("Test (6.2 + 2) / 2 = 4.1")
+    void testMean() {
         SimpleMath math = new SimpleMath();
         double firstNumber = 6.2D;
         double secondNumber = 2D;
@@ -77,7 +84,8 @@ public class SimpleMathTest {
     }
 
     @Test
-    void divTest() {
+    @DisplayName("Test 6.2 / 2 = 3.1")
+    void testDivision() {
         SimpleMath math = new SimpleMath();
         double firstNumber = 6.2D;
         double secondNumber = 2D;
@@ -88,5 +96,11 @@ public class SimpleMathTest {
         assertEquals(expected, actual, () -> firstNumber + " / " + secondNumber + " did not produce " + expected);
         assertNotEquals(9.2, actual);
         assertNotNull(actual);
+    }
+
+    @Test
+    @DisplayName("Test Division by zero")
+    void testDivision_When_FirstNumberIsDividedByZero_ShouldThrowArithmeticException() {
+        fail();
     }
 }
